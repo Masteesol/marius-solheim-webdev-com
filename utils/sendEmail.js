@@ -20,14 +20,14 @@ export default function sendEmail(event) {
 
      emailjs.sendForm('service_dep495r', 'template_wcki7aq', this)
         .then(function() {
-            sendBtn.style.display = "none";
+            sendBtn.remove()
             spinner.remove("loading-spinner");
             responseMessage.innerText = "Email sent... Redirecting"
             contactModalOuter.append(responseMessage);
             setTimeout(pageReload, 1000);
             console.log('SUCCESS!');
         }, function(error) {
-            sendBtn.style.display = "none";
+            sendBtn.remove()
             spinner.remove("loading-spinner");
             responseMessage.innerText = "Something went wrong... Redirecting"
             contactModal.append(responseMessage);

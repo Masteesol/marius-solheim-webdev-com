@@ -1,15 +1,12 @@
+import createElement from "../utils/createElement.js";
+
 export default function() {
-    const container = document.createElement("div");
-    container.classList.add("container");
-    container.classList.add("fluid");
+    const container = createElement("div", ["container", "fluid", "mt-3"])
     const template = 
             `
-            <div class="row">
-                <div class="col">
-                     Created by Marius Solheim
-                </div>
-                <div class="col">
-                &copy2022
+            <div class="row footer-inner">
+                <div class="col footer-name text-center">
+                     Created by Marius Solheim&copy2022
                 </div>
             </div>
             `
