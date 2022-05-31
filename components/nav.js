@@ -1,5 +1,6 @@
 import { isLoggedIn } from "../pages/admin.js";
 import createElement from "../utils/createElement.js";
+import sendEmail from "../utils/sendEmail.js";
 
 export default function (location) {
     const navElement = document.querySelector("nav");
@@ -36,24 +37,26 @@ export default function (location) {
                       </h5>
                       <button
                         type="button"
-                        class="btn-close"
+                        class="btn-close bg-light" 
                         data-bs-dismiss="modal"
                         aria-label="Close"
                       ></button>
                     </div>
                     <form id="form-contact">
-                    <div class="modal-body">
+                    <div class="modal-body outer" id="contact-form-modal-body">
+                      <div class="modal-body inner">
                         <div class="mb-3">
-                          <label for="email" class="form-label">Email</label>
-                          <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                          <label for="name" class="form-label">Name</label>
+                          <input type="text" class="form-control" id="name" name="from_name" aria-describedby="emailHelp" placeholder="Your name...">
                         </div>
                         <div class="mb-3">
-                          <label for="subject" class="form-label">Subject</label>
-                          <input type="text" class="form-control" id="subject">
+                          <label for="email" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="email" name="reply_to" aria-describedby="emailHelp" placeholder="Your Email...">
                         </div>
                         <div class="mb-3">
                         <label for="message">Message</label>
-                          <textarea class="form-control" id="message" rows="3"></textarea>
+                          <textarea class="form-control" id="message" rows="3" name="message" placeholder="Your message..."></textarea>
+                          </div> 
                         </div> 
                     </div>
                     <div class="modal-footer">
@@ -132,4 +135,9 @@ export default function (location) {
         `;
     container.innerHTML = template;
     navElement.append(container);
+    const contactForm = document.querySelector('#form-contact');
+    contactForm.addEventListener("submit", sendEmail)
 }
+
+
+

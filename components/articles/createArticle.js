@@ -1,8 +1,8 @@
 import { stringify, api } from "../../data/api.js";
-import simpleArticleInputValidation from "../../utils/simpleArticleInputValidation.js";
+import simpleInputValidation from "../../utils/simpleInputValidation.js";
 import { getLocalStorage } from "../../utils/storage.js";
 import createModal from "../createModalForm.js";
-import { convertCustomSyntaxToHTML, parseInput } from "../../utils/convert-html-to-custom-syntax.js";
+import { parseInput } from "../../utils/convert-html-to-custom-syntax.js";
 
 export default function addArticle(parentElement) {
     const inputGroups = `<div class="form-group">
@@ -20,7 +20,7 @@ export default function addArticle(parentElement) {
     const form = document.querySelector('#form-add-article');
     form.addEventListener("submit", function(event) {
         event.preventDefault()
-        if(simpleArticleInputValidation([form[0], form[1]])) {
+        if(simpleInputValidation([form[0], form[1]])) {
             const inputHTMLSyntax = parseInput(form[1].value)
             console.log(inputHTMLSyntax)
             saveArticle({title: form[0].value, fullText: form[1].value})

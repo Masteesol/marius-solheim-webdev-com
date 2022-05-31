@@ -1,19 +1,18 @@
 import nav from "./components/nav.js";
 import footer from "./components/footer.js";
-import home from "./pages/home.js";
-import sendEmail from "./utils/sendEmail.js";
+import home from "./pages/home.js";;
 import post from "./pages/post.js";
 import allPosts from "./pages/all-posts.js";
 import admin from "./pages/admin.js";
 
 const footerContainer = document.querySelector("footer");
 
+
 (function () {
   insertData();
   nav(window.location.pathname);
-  const form = document.querySelector('#form-contact');
-  form.addEventListener("submit", sendEmail)
   footerContainer.append(footer());
+  emailjs.init('9WjCwswas6-QiAuxU');
 })();
 
 function insertData() {

@@ -1,5 +1,5 @@
 import { api, stringify } from "../../data/api.js";
-import simpleArticleInputValidation from "../../utils/simpleArticleInputValidation.js";
+import simpleInputValidation from "../../utils/simpleInputValidation.js";
 import { getLocalStorage } from "../../utils/storage.js";
 import { convertNodeListToCustomSyntax, parseInput } from "../../utils/convert-html-to-custom-syntax.js";
 
@@ -31,7 +31,7 @@ export default function editArticle(object) {
 
 function validation() {
     const { inputs } = localObject;
-    if(simpleArticleInputValidation(inputs)) {
+    if(simpleInputValidation(inputs)) {
         addChanges()
     }
 }
