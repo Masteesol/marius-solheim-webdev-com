@@ -6,7 +6,7 @@ export default function() {
             `
             <div class="row footer-inner">
                 <div class="col footer-name text-center">
-                     Created by Marius Solheim&copy2022
+                     Marius Solheim&copy2022
                 </div>
             </div>
             `
