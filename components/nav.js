@@ -67,7 +67,7 @@ export default function (location) {
                       >
                         Close
                       </button>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" id="contact-send">
                           Send
                         </button>
                       </form>
