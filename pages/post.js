@@ -3,27 +3,27 @@ import createElement from "../utils/createElement.js";
 import { isLoggedIn } from "./admin.js";
 import editArticle from "../components/articles/editArticle.js";
 import deleteArticle from "../components/articles/deleteArticle.js";
-import { convertCustomSyntaxToHTML, parseInput } from "../utils/convert-html-to-custom-syntax.js";
+import { parseInput, getSummary } from "../utils/convert-html-to-custom-syntax.js";
 import colouriseCodeSnippets from "../utils/colourise-code-snippets.js";
 
 const main = document.querySelector('main');
 const heading = document.querySelector('h1');
 
 export default async function() {
+    const metaDescr = document.querySelector('[name=description]');
     const loader = document.querySelector('.loader');
     loader.style.display = "none"
     const params = new URL(document.location).searchParams
     const id = params.get("id")
 
-    document.title = "Posts";
+    
     const json = await getApi("posts/"+id);
     const articleData = json.data.attributes
-    const parsedHTML = convertCustomSyntaxToHTML([articleData.title, articleData.fulltexthtml])
-   
-    heading.innerText = parsedHTML.title;
-
-    const articleContainer = fixSpacesCodeSnippet(parsedHTML.parsedHTML)
-    console.log(articleContainer)
+    const parsedHTML = parseInput(articleData.fulltexthtml);
+    document.title =  articleData.title +" - Marius Solheim Web Design";
+    heading.innerText = articleData.title;
+    metaDescr.content = getSummary(parsedHTML);
+    const articleContainer = fixSpacesCodeSnippet(parsedHTML)
     if(isLoggedIn()) {
         const titleInputEdit = createElement("input", ["form-control", "mb-2"], ["style", "placeholder"], ["display: none", "Title..."])
         const articleTextAreaEdit = createElement("textarea", "form-control", ["style", "placeholder"], ["display: none; height: 50%", "Article text. Use HTML syntax or custom syntax..."])

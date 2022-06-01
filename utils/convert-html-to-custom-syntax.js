@@ -1,41 +1,5 @@
 import createElement from "./createElement.js";
 
-
-
-export function convertCustomSyntaxToHTML(inputs) {
-    const [ title, text ] = inputs;
-
-    let html = (typeof(text) === "string") ? text : text.value;
-    let articleTitle = (typeof(title) === "string") ? title : title.value;
-
-    const object = {
-        title: articleTitle,
-        parsedHTML : parseInput(html)
-    }
-    return object;
-}
-
-export function convertNodeListToCustomSyntax() {
-    const articleContainer = document.querySelector('.article-container');
-    removeSpaces()
-    let parsedHTML = parseInput(articleContainer.innerHTML, true);
-    parsedHTML = parsedHTML.replaceAll("Copy", "")
-    return parsedHTML;
-}
-
-export function removeSpaces() {
-    const articleContainer = document.querySelector('.article-container');
-    for (const element of articleContainer.childNodes) {
-        if(element.tagName === "CODE") {
-            const temp = createElement("div")
-            temp.innerHTML = element.innerText;
-            const tempRemovedSpaces = temp.innerHTML.replaceAll("&nbsp;", " ");
-            element.innerHTML = tempRemovedSpaces;
-        }
-    }
-}
-
-
 export function parseInput(textInput, getHTML = false) {
     const symbols = [
         ["h2#", "<h2>"],
@@ -76,4 +40,34 @@ export function parseInput(textInput, getHTML = false) {
     return htmlParsed;
 }
 
+export function convertNodeListToCustomSyntax() {
+    const articleContainer = document.querySelector('.article-container');
+    removeSpaces()
+    let parsedHTML = parseInput(articleContainer.innerHTML, true);
+    parsedHTML = parsedHTML.replaceAll("Copy", "")
+    return parsedHTML;
+}
 
+export function removeSpaces() {
+    const articleContainer = document.querySelector('.article-container');
+    for (const element of articleContainer.childNodes) {
+        if(element.tagName === "CODE") {
+            const temp = createElement("div")
+            temp.innerHTML = element.innerText;
+            const tempRemovedSpaces = temp.innerHTML.replaceAll("&nbsp;", " ");
+            element.innerHTML = tempRemovedSpaces;
+        }
+    }
+}
+
+export function getSummary(fullText) {
+    const temp = createElement("div")
+    temp.innerHTML = fullText;
+    const summary = createElement("p");
+    if(temp.getElementsByClassName("summary")[0]) {
+        summary.innerText = temp.getElementsByClassName("summary")[0].innerText
+    } else {
+        summary.innerText = "";
+    }
+    return summary.innerText;
+}
