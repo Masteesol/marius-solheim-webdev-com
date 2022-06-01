@@ -37,7 +37,7 @@ async function createTabs() {
     modifyClassNames(about, "bg-black")
 
     const textContainer = createElement("div", ["border", "p-3", "border-2", "border-top-1", "bg-black"]);
-    const text = createElement("p")
+    const text = createElement("p", "mb-0")
 
     text.innerText = aboutData.data.attributes.fulltext
     about.addEventListener("click", function() {
