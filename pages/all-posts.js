@@ -23,9 +23,10 @@ export default async function() {
 
 function createHTML(item) {
          const id = item.id;
-
+        
         const summary = createElement("p")
         summary.innerText = getSummary(item.attributes.fulltexthtml);
+        console.log('%call-posts.js line:26 object', 'color: #007acc;', item.attributes.fulltexthtml);
         const title = item.attributes.title;
         const row = createElement("a", ["row", "article-row", "bg-dark", "p-3"], "href", "/post.html?id="+id)
         const h2 = createElement("h2", "text-light")

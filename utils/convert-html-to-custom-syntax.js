@@ -2,13 +2,13 @@ import createElement from "./createElement.js";
 
 export function parseInput(textInput, getHTML = false) {
     const symbols = [
-        ["h2#", "<h2>"],
-        ["#h2", "</h2>"],
-        ["h3#", "<h3>"],
-        ["#h3", "</h3>"],
+        ["h2#", `<h2>`],
+        ["#h2", `</h2>`],
+        ["h3#", `<h3>`],
+        ["#h3", `</h3>`],
         ["p#", `<p>`],
-        ["#p", "</p>"],
-        ["\n", "<br>"],
+        ["#p", `</p>`],
+        ["\n", `<br>`],
         ["(sum#", `<strong class="summary" style="font-weight: 400">`],
         ["#sum)", `</strong>`],
         ["#[[", `<code class="bg-dark d-block p-3 text-white position-relative" style="overflow-x: scroll; white-space: nowrap">`],
@@ -29,7 +29,6 @@ export function parseInput(textInput, getHTML = false) {
         })
     } else {
         //creating custom syntax for editing
-        console.log("test")
         symbols.forEach(symbol => {
             if(htmlParsed.includes(symbol[1])) {
                 const temp = htmlParsed.replaceAll(symbol[1], symbol[0]);
@@ -59,6 +58,7 @@ export function removeSpaces() {
         }
     }
 }
+
 
 export function getSummary(fullText) {
     const temp = createElement("div")

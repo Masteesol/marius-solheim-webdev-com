@@ -23,7 +23,7 @@ export default function addArticle(parentElement) {
         if(simpleInputValidation([form[0], form[1]])) {
             const inputHTMLSyntax = parseInput(form[1].value)
             console.log(inputHTMLSyntax)
-            saveArticle({title: form[0].value, fullText: form[1].value})
+            saveArticle({title: form[0].value, fullText: inputHTMLSyntax})
         }
     });
 }

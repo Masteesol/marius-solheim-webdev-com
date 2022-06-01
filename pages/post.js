@@ -73,7 +73,7 @@ function copyCode(input) {
     alert("Copied the text: " + tempRemovedSpaces);
   }
 
-  function fixSpacesCodeSnippet(parsedHTML) {
+function fixSpacesCodeSnippet(parsedHTML) {
     const articleContainer = createElement("div", "article-container")
    console.log('%cpost.js line:77 object', 'color: #007acc;', articleContainer);
     articleContainer.innerHTML = parsedHTML;
