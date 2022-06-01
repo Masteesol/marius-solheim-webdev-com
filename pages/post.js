@@ -16,7 +16,6 @@ export default async function() {
     const params = new URL(document.location).searchParams
     const id = params.get("id")
 
-    
     const json = await getApi("posts/"+id);
     const articleData = json.data.attributes
     const parsedHTML = parseInput(articleData.fulltexthtml);

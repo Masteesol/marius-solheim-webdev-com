@@ -7,9 +7,7 @@ const layerOne = document.querySelector('.body-layer-1');
 const layerTwo = document.querySelector('.body-layer-2');
 
 export default async function() {
-    
-    document.title = "Home";
-    main.append( await createTabs())
+    main.append( await createTabs());
     backGroundTriangles();
 }
 
