@@ -13,6 +13,7 @@ body {
     background-image: linear-gradient(to top right, black, #848484);
     color: white;
     margin: 0px;
+    overflow: hidden;
 }
 
 .body-layer-1 {
@@ -20,6 +21,9 @@ body {
     width: 100%;
 }
 
+.body-layer-2 {
+    overflow-y: auto;
+}
 
 .body-layer-2.home {
     background-image: url("/images/main-background.png");
@@ -31,8 +35,8 @@ body {
     background-repeat: no-repeat;
 }
 
-.body-layer-2.all-posts {
-    overflow-y: scroll;
+.body-layer-2.all-posts, .body-layer-2.post  {
+    overflow-y: auto;
 }
 
 .body-layer-2 {
@@ -44,10 +48,6 @@ body {
     background-size: cover;
     background-position: center;
     position: relative;
-}
-
-.body-layer-2.post {
-    overflow-y: scroll;
 }
 
 .main, main {
@@ -129,11 +129,18 @@ p {
     height: fit-content;
     font-family: "Roboto";
 }
+.tabs-item:hover {
+    border-color: white!important;
+    background-color: rgba(0, 0, 0, 0.533);
+}
 
 textarea, input {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.flex {
+    flex: 1 0 0;
+}
 
 /*Loader from https://projects.lukehaas.me/css-loaders/*/
 
@@ -410,14 +417,35 @@ textarea, input {
     }
 }
 
+@media (max-width: 312.98px) {
+    a.navbar-brand {
+        display: none;
+    }
+}
 
 @media (max-width: 575.98px) {
-    p, code, .copy-btn {
+    p, code, .copy-btn, .tabs .btn {
         font-size: 0.8rem;
+    }
+    .tabs-item.active {
+        background-color: rgba(211, 211, 211, 0.567)!important;
+        color: black;
     }
     .tabs-item {
         font-size: 1rem;
-    }
+        border-color: white!important;
+        background-color: rgba(0, 0, 0, 0.533);
+     }
+     .tabs-item:hover {
+        background-color: transparent;
+     }
+     main.home {
+         overflow-y: auto;
+         padding: 0px!important;
+         width: 100%;
+         margin-left: 0px;
+         margin-right: 0px;
+     }
 }
 
 

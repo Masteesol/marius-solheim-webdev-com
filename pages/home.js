@@ -19,39 +19,50 @@ function createTabs() {
     const h2 = document.querySelector('.sub-heading');
     h1.style.display = "block";
     h2.style.display = "block";
-    const tabsUtilities = ["nav-item", "tabs-item", "pointer", "me-3", "p-2", "border", "border-2", "border-bottom-0"];
+
+    const tabsUtilities = ["nav-item", "tabs-item", "justify-content-center", "pointer", "p-2", "d-flex", "flex", "border", "border-2", "border-bottom-0"];
 
     const about = createElement("li", tabsUtilities)
     about.innerText = "About";
-
     const skills = createElement("li", tabsUtilities)
     skills.innerText = "Skills";
+    const experience = createElement("li", tabsUtilities)
+    experience.innerText = "Experience";
+    const education = createElement("li", tabsUtilities)
+    education.innerText = "Education";
+    const projects = createElement("li", tabsUtilities)
+    projects.innerText = "Projects";
 
-    modifyClassNames(skills, "border-transparent", "border-light");
-
-    modifyClassNames(about, tabsUtilities);
-
-    modifyClassNames(about, "bg-black")
-
+    
     const textContainer = createElement("div", ["border", "p-3", "border-2", "border-top-1", "bg-black"]);
     const text = createElement("p", "mb-0")
+    const array = [about, skills, experience, education, projects];
+    const tabContainer = createElement("ul", ["nav", "nav-tabs", "w-100"]);
+    //Tabs selector
+    array.forEach((item, index) => {
+        if(index != 0) {
+            modifyClassNames(item, "border-transparent", ["border-light", "bg-black", "active"]);
+        } else {
+            modifyClassNames(item, ["border-light", "bg-black", "active"], "border-transparent");
+            text.innerHTML = tabsText[item.innerText.toLowerCase()];
+        }
 
-    text.innerText = tabsText.about;
-    about.addEventListener("click", function() {
-        modifyClassNames(skills, "border-transparent", ["border-light", "bg-black"]);
-        modifyClassNames(about, ["border-light", "bg-black"], "border-transparent");
-        text.innerText = tabsText.about;
+        item.addEventListener("click", function(){
+            //clear all styling
+            array.forEach(item => {
+                modifyClassNames(item, "border-transparent", ["border-light", "bg-black", "active"]);
+            })
+            //setting styling on clicked item
+            modifyClassNames(item, ["border-light", "bg-black", "active"], "border-transparent");
+            //finding value by key which is the tab title
+            text.innerHTML = tabsText[item.innerText.toLowerCase()];
+        })
+        tabContainer.append(item)
     })
-    skills.addEventListener("click", function() {
-        modifyClassNames(about, "border-transparent", ["border-light", "bg-black"]);
-        modifyClassNames(skills, ["border-light", "bg-black"], "border-transparent");
-        text.innerText = tabsText.skills
-    })
+    const container = createElement("div", ["tabs","px-0", "container", "ms-0", "pt-5"], "style", "height: 20rem; max-width: 600px");
     
-    const container = createElement("div", ["container", "ms-0", "pt-5"], "style", "height: 20rem; max-width: 600px");
-    const tabContainer = createElement("ul", ["nav", "nav-tabs"]);
     textContainer.append(text)
-    tabContainer.append(about, skills)
+    
     container.append(tabContainer, textContainer);
     return container;
 }
