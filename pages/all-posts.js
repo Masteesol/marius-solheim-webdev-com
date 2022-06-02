@@ -7,8 +7,10 @@ import { getSummary } from "../utils/convert-html-to-custom-syntax.js";
 const main = document.querySelector('main');
 
 export default async function() {
-    const json = await getApi("posts");
+    const json = await getApi("posts?sort=id:DESC");
+    
     const data = json.data;
+    console.log('%call-posts.js line:11 object', 'color: #007acc;', data);
     const newArticles = data.map(item => createHTML(item));
     const loader = document.querySelector('.loader');
     loader.style.display = "none"
@@ -26,7 +28,6 @@ function createHTML(item) {
         
         const summary = createElement("p")
         summary.innerText = getSummary(item.attributes.fulltexthtml);
-        console.log('%call-posts.js line:26 object', 'color: #007acc;', item.attributes.fulltexthtml);
         const title = item.attributes.title;
         const row = createElement("a", ["row", "article-row", "bg-dark", "p-3"], "href", "/post.html?id="+id)
         const h2 = createElement("h2", "text-light")

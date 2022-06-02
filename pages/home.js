@@ -1,4 +1,4 @@
-import { getApi } from "../data/api.js";
+import tabsText from "../data/tabs-text.js";
 import createElement from "../utils/createElement.js";
 import modifyClassNames from "../utils/modifyClassNames.js";
 
@@ -7,15 +7,12 @@ const layerOne = document.querySelector('.body-layer-1');
 const layerTwo = document.querySelector('.body-layer-2');
 
 export default async function() {
-    main.append( await createTabs());
+    main.append(createTabs());
     backGroundTriangles();
 }
 
 
-async function createTabs() {
-    const aboutData = await getApi("tabs/1");
-    const skillsData = await getApi("tabs/2")
-
+function createTabs() {
     const loader = document.querySelector('.loader');
     loader.style.display = "none"
     const h1 = document.querySelector('h1');
@@ -25,10 +22,10 @@ async function createTabs() {
     const tabsUtilities = ["nav-item", "tabs-item", "pointer", "me-3", "p-2", "border", "border-2", "border-bottom-0"];
 
     const about = createElement("li", tabsUtilities)
-    about.innerText = aboutData.data.attributes.title;
+    about.innerText = "About";
 
     const skills = createElement("li", tabsUtilities)
-    skills.innerText = skillsData.data.attributes.title;
+    skills.innerText = "Title";
 
     modifyClassNames(skills, "border-transparent", "border-light");
 
@@ -39,16 +36,16 @@ async function createTabs() {
     const textContainer = createElement("div", ["border", "p-3", "border-2", "border-top-1", "bg-black"]);
     const text = createElement("p", "mb-0")
 
-    text.innerText = aboutData.data.attributes.fulltext
+    text.innerText = tabsText.about;
     about.addEventListener("click", function() {
         modifyClassNames(skills, "border-transparent", ["border-light", "bg-black"]);
         modifyClassNames(about, ["border-light", "bg-black"], "border-transparent");
-        text.innerText = aboutData.data.attributes.fulltext
+        text.innerText = tabsText.about;
     })
     skills.addEventListener("click", function() {
         modifyClassNames(about, "border-transparent", ["border-light", "bg-black"]);
         modifyClassNames(skills, ["border-light", "bg-black"], "border-transparent");
-        text.innerText = skillsData.data.attributes.fulltext
+        text.innerText = tabsText.skills
     })
     
     const container = createElement("div", ["container", "ms-0", "pt-5"], "style", "height: 20rem; max-width: 600px");

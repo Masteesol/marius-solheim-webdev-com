@@ -9,8 +9,8 @@ const footerContainer = document.querySelector("footer");
 
 
 (function () {
-  insertData();
   nav(window.location.pathname);
+  insertData();
   footerContainer.append(footer());
   emailjs.init('9WjCwswas6-QiAuxU');
 })();
