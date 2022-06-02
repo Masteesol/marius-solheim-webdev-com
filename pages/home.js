@@ -25,7 +25,7 @@ function createTabs() {
     about.innerText = "About";
 
     const skills = createElement("li", tabsUtilities)
-    skills.innerText = "Title";
+    skills.innerText = "Skills";
 
     modifyClassNames(skills, "border-transparent", "border-light");
 
