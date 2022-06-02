@@ -427,18 +427,6 @@ textarea, input {
     p, code, .copy-btn, .tabs .btn {
         font-size: 0.8rem;
     }
-    .tabs-item.active {
-        background-color: rgba(211, 211, 211, 0.567)!important;
-        color: black;
-    }
-    .tabs-item {
-        font-size: 1rem;
-        border-color: white!important;
-        background-color: rgba(0, 0, 0, 0.533);
-     }
-     .tabs-item:hover {
-        background-color: transparent;
-     }
      main.home {
          overflow-y: auto;
          padding: 0px!important;
@@ -456,6 +444,18 @@ textarea, input {
     .body-layer-2.all-posts, .body-layer-2.post {
         background-image: url("/images/main-background-posts-mobile.png");
     }
+    .tabs-item.active {
+        background-color: rgba(211, 211, 211, 0.567)!important;
+        color: black;
+    }
+    .tabs-item {
+        font-size: 1rem;
+        border-color: white!important;
+        background-color: rgba(0, 0, 0, 0.533);
+     }
+     .tabs-item:hover {
+        background-color: transparent;
+     }
 }
 
 
