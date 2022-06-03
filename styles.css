@@ -6,6 +6,9 @@
     --gray: #656565;
 }
 
+html {
+    background-color: black;
+}
 
 body {
     height: 100vh;
