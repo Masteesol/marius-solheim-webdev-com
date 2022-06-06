@@ -455,6 +455,9 @@ textarea, input {
      h1.home, .sub-heading.home {
         padding-left: 1rem;
      }
+     .tech-logos {
+        bottom: 50%!important;
+     }
 }
 
 
