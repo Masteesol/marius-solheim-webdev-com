@@ -1,6 +1,7 @@
 export default {
-    base: "../images/technologies-logos/",
-    fileNames: [
+    logos : {
+        base: "../images/technologies-logos/",
+        fileNames: [
         "html-logo.png",
         "css-logo.png",
         "js-logo.png",
@@ -9,5 +10,7 @@ export default {
         "sass-logo.png",
         "xd-logo.png",
         "photoshop-logo.png",
-    ]
+            ]
+        }   
 }
+    

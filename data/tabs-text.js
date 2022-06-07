@@ -53,18 +53,35 @@ export default {
                     <tr>
                         <th>Project Name</th>
                         <th>Date Finished</th>
-                        <th>Link</th>
+                        <th></th>
                     </tr>
                     <tr>
                         <td>Project Exam 1</td>
                         <td>26/02/2022</td>
-                        <td><a class="btn btn-primary" href="https://eternalblueband.netlify.app/" target="_blank">Visit</a></td>
+                        <td><button class="btn btn-secondary active quick-view" id="project-exam-1">View</button></td>
                     </tr>
                     <tr>
                         <td>Bayinnah BDK</td>
                         <td>14/01/2022</td>
-                        <td><a class="btn btn-primary" href="https://www.bayyinah-bdk.net/" target="_blank">Visit</a></td>
+                        <td><button class="btn btn-primary quick-view" id="project-bayyinah">View</button></td>
                     </tr>
                 </table> 
-                `
+                `,
+}
+
+export const projectText = {
+    projectExamOne: {
+        heading: "Project Exam Year 1",
+        subheading: "Band page for my group Eternal Blue",
+        about: `This page was created with pure HTML, CSS and JavaScript and reflects my skill-level at that time. The inspiration for the theme was from the cyberpunk genre with the neon skylights.
+
+        I used Wordpress as a headless CMS and did simple GET requests to fetch the public JSON data. I used the fetch() api with async / await to make the GET request.`
+    },
+    bayyinah: {
+        heading: "Bayyinah BDK",
+        subheading: "A freelance job for Bayinnah BDK",
+        about: `This page was also created with pure HTML, CSS and JavaScript and was originally all static content. I had to revise the page when the client wanted to be able to create their own posts, which is a fair request.
+        
+        Luckily, I had just been through using Wordspress as a headless CMS at school, so I got to implement this functionality.`
+    }
 }
