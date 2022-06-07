@@ -60,9 +60,11 @@ function createTabs() {
             imgContainer.append(img)
             return imgContainer;
         } 
-
     })
     mainLayer1.append(logosContainer);
+    //adding profile image
+    //const profileImg = createElement("img", "position-absolute", ["src", "style"], ["../images/profile.png", "width: 20rem; height: auto; right: 0px;"])
+    //mainLayer2.append(profileImg)
 
     //Tabs selector
     array.forEach((item, index) => {
@@ -179,7 +181,7 @@ function createTabs() {
                 h1.insertAdjacentElement("afterbegin", visitBtn)
                 h1.insertAdjacentElement("afterbegin", mobileImage)
                 layerTwo.removeAttribute("style");
-                layerTwo.setAttribute("style", `background: rgba(0, 0, 0, 0.7) url(${ImageUrl}); background-size: cover; background-position: center; background-blend-mode: darken`);
+                layerTwo.setAttribute("style", `background: rgba(0, 0, 0, 0.5) url(${ImageUrl}); background-size: cover; background-position: center; background-blend-mode: darken`);
                 modifyClassNames(layerTwo, "fade-in");
         }
         

@@ -533,3 +533,22 @@ textarea, input {
 @media (max-width: 1199.98px) {  
 
 }
+
+@media only screen and (max-height: 900px) {  
+    h1.home {
+        font-size: 2rem;
+    }
+    .sub-heading.home {
+        font-size: 1.7rem;
+    }
+    .tabs-item {
+        font-size: 1rem;
+    }
+    main.home p {
+        font-size: 0.8rem;
+    }
+
+    button.quick-view {
+        font-size: 0.8rem;
+    }
+}
