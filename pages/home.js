@@ -41,18 +41,24 @@ function createTabs() {
     const tabContainer = createElement("ul", ["nav", "nav-tabs", "w-100"]);
 
     //adding logos to a hidden container in layer 1
-    const logosContainer = createElement("div", ["tech-logos", "container", "position-absolute", "d-none", "d-flex", "justify-content-start", "container"], "style", "bottom: 3rem; z-index: 500");
-
-    const logosContainerInner = createElement("div", ["row"], "style", "max-width: 600x");
-
+    const logosContainer = createElement("div", ["tech-logos", "container", "position-absolute", "d-none", "d-flex"], "style", "bottom: 3rem; z-index: 500");
+    let logosContainerInner = "";
     const { base, fileNames } = tabsImages;
-    fileNames.forEach(fileName => {
-        const imgContainer = createElement("div", "col");
-        const img = createElement("img", "", ["src", "style"], [base+fileName, "height: 3rem;"]);
-        imgContainer.append(img)
-        logosContainerInner.append(imgContainer);
+    fileNames.forEach((fileName, index) => {
+        if(index === 0 || index === 4) {
+            logosContainerInner = "";
+            logosContainerInner = createElement("div", ["row", "mb-3", "px-2"]);
+        }
+        logosContainerInner.append(imgCard());
+        logosContainer.append(logosContainerInner)
+        function imgCard() {
+            const imgContainer = createElement("div", ["col", "d-flex", "justify-content-center"]);
+            const img = createElement("img", "", ["src", "style"], [base+fileName, "height: 12vw; max-height: 3rem;"]);
+            imgContainer.append(img)
+            return imgContainer;
+        } 
+
     })
-    logosContainer.append(logosContainerInner)
     mainLayer1.append(logosContainer);
 
     //Tabs selector

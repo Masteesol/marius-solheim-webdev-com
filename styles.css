@@ -458,6 +458,9 @@ textarea, input {
      .tech-logos {
         bottom: 50%!important;
      }
+     .tech-logos img {
+        max-height: 4rem!important;
+     }
 }
 
 
@@ -479,6 +482,9 @@ textarea, input {
      }
      .tabs-item:hover {
         background-color: transparent;
+     }
+     .tech-logos {
+         flex-direction: column;
      }
 }
 
