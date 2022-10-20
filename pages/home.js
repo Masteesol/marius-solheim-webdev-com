@@ -96,7 +96,7 @@ function createTabs() {
             } else {
                 modifyClassNames(logosContainer, "d-none", "fade-in");
             }
-            const {projectExamOne, bayyinah} = projectText;
+            const {projectExamOne, bayyinah, semesterProject} = projectText;
 
             body.addEventListener("click", function(event) {
                 if(event.target.classList.contains("quick-view")) {
@@ -116,10 +116,17 @@ function createTabs() {
                 let pageUrl = "";
                 switch(event.target.id) {
                     case("projects-tab"): 
-                        url = "../images/projects/eternalblue-desktop.JPG";
-                        urlMobile = "../images/projects/eternalblue-mobile.png";
-                        pageUrl = "https://eternalblueband.netlify.app/"
-                        modifySite(url, pageUrl, projectExamOne.heading, projectExamOne.subheading, projectExamOne.about, urlMobile);   
+                        url = "../images/projects/sarif-interface-2.JPG";
+                        urlMobile = "../images/projects/sarif-main-mobile.JPG";
+                        pageUrl = "https://sarif-industries-semester-project.netlify.app"
+                        
+                        modifySite(url, pageUrl, semesterProject.heading, semesterProject.subheading, semesterProject.about, urlMobile);
+                        break;
+                    case("semester-project"):
+                        url = "../images/projects/sarif-interface-2.JPG";
+                        urlMobile = "../images/projects/sarif-main-mobile.JPG";
+                        pageUrl = "https://sarif-industries-semester-project.netlify.app"
+                        modifySite(url, pageUrl, semesterProject.heading, semesterProject.subheading, semesterProject.about, urlMobile);
                         break;
                     case("project-exam-1"):
                         url = "../images/projects/eternalblue-desktop.JPG";

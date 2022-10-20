@@ -56,9 +56,14 @@ export default {
                         <th></th>
                     </tr>
                     <tr>
+                    <td>Semester Project 2</td>
+                        <td>29/09/2022</td>
+                        <td><button class="btn btn-secondary quick-view" id="semester-project">View</button></td>
+                    </tr>
+                    <tr>
                         <td>Project Exam 1</td>
                         <td>26/02/2022</td>
-                        <td><button class="btn btn-secondary active quick-view" id="project-exam-1">View</button></td>
+                        <td><button class="btn btn-primary quick-view" id="project-exam-1">View</button></td>
                     </tr>
                     <tr>
                         <td>Bayinnah BDK</td>
@@ -70,6 +75,13 @@ export default {
 }
 
 export const projectText = {
+    semesterProject: {
+        heading: "Semester Project 2",
+        subheading: "Sarif Industries e-commerce site",
+        about: `The goal of the brief was to create an e-commerce website, being free to choose any theme. Well, I went for something a bit futuristic (for now at least...) - human cybernetic augmentations.
+
+        Tech used: Bootstrap, SCSS, JavaScript, Strapi CMS`
+    },
     projectExamOne: {
         heading: "Project Exam Year 1",
         subheading: "Band page for my group Eternal Blue",
