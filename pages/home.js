@@ -30,7 +30,7 @@ function createTabs() {
     const education = createElement("li", tabsUtilities, "", "", "Education")
     const projects = createElement("li", tabsUtilities, "", "", "Projects")
 
-    const textContainer = createElement("div", ["border", "p-3", "border-2", "border-top-1"], "style", "background-color: rgb(0, 0, 0, 0.8);");
+    const textContainer = createElement("div", ["border", "p-3", "border-2", "border-top-1"], "style | id", "background-color: rgb(0, 0, 0, 0.8); | tabs-text");
     const text = createElement("p", "mb-0")
     const array = [about, skills, experience, education, projects];
     const tabContainer = createElement("ul", ["nav", "nav-tabs", "w-100"]);
