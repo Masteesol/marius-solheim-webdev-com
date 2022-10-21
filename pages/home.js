@@ -1,41 +1,35 @@
 import tabsText, {projectText} from "../data/tabs-text.js";
-import createElement from "../utils/createElement.js";
-import modifyClassNames from "../utils/modifyClassNames.js";
+import {modifyClassNames, createElement, selectElement, deleteElement} from "../utils/manage-elements.js";
 import tabsImages from "../data/tabs-images.js";
 
-const main = document.querySelector('main');
-const body = document.querySelector('body');
-const layerOne = document.querySelector('.body-layer-1');
-const layerTwo = document.querySelector('.body-layer-2');
-const mainLayer1 = document.querySelector('.main-layer-1');
-const mainLayer2 = document.querySelector('.main-layer-2');
+const main = selectElement('main');
+const body = selectElement('body');
+const layerOne = selectElement('.body-layer-1');
+const layerTwo = selectElement('.body-layer-2');
+const mainLayer1 = selectElement('.main-layer-1');
+const mainLayer2 = selectElement('.main-layer-2');
 export default async function() {
     mainLayer2.append(createTabs());
     backGroundTriangles();
 }
 
 
+
 function createTabs() {
-    const loader = document.querySelector('.loader');
+    const loader = selectElement('.loader');
     loader.style.display = "none"
-    const h1 = document.querySelector('h1');
-    const h2 = document.querySelector('.sub-heading');
+    const h1 = selectElement('h1');
+    const h2 = selectElement('.sub-heading');
     h1.style.display = "block";
     h2.style.display = "block";
     const tabsUtilities = ["nav-item", "tabs-item", "justify-content-center", "pointer", "p-2", "d-flex", "flex", "border", "border-2", "border-bottom-0"];
 
-    const about = createElement("li", tabsUtilities)
-    about.innerText = "About";
-    const skills = createElement("li", tabsUtilities)
-    skills.innerText = "Skills";
-    const experience = createElement("li", tabsUtilities)
-    experience.innerText = "Experience";
-    const education = createElement("li", tabsUtilities)
-    education.innerText = "Education";
-    const projects = createElement("li", tabsUtilities)
-    projects.innerText = "Projects";
+    const about = createElement("li", tabsUtilities, "", "", "About")
+    const skills = createElement("li", tabsUtilities, "", "", "Skills")
+    const experience = createElement("li", tabsUtilities, "", "", "Experience")
+    const education = createElement("li", tabsUtilities, "", "", "Education")
+    const projects = createElement("li", tabsUtilities, "", "", "Projects")
 
-    
     const textContainer = createElement("div", ["border", "p-3", "border-2", "border-top-1", "bg-black"]);
     const text = createElement("p", "mb-0")
     const array = [about, skills, experience, education, projects];
@@ -153,28 +147,27 @@ function createTabs() {
                 layerOne.removeAttribute("style");
                 layerTwo.removeAttribute("style");
                 main.removeAttribute("style")
-                h1.innerText = "Welcome!";
-                h2.innerText = "The world of a frontend development student";
-                if(document.querySelector('.about-page')) {
-                    document.querySelector('.about-page').remove()
+                h1.innerText = "Marius Solheim";
+                h2.innerText = "WEBDESIGN";
+                if(selectElement('.about-page')) {
+                    deleteElement('.about-page')
                 }
-                if(document.querySelector('.visit-page-btn')) {
-                    document.querySelector('.visit-page-btn').remove()
+                if(selectElement('.visit-page-btn')) {
+                    deleteElement('.visit-page-btn')
                 }
                 modifyClassNames(layerTwo, "", ["pointer", "fade-in"])
 
             }
 
             function modifySite(ImageUrl, pageUrl, heading, subheading, about, imageUrlMobile) {
-                console.log('%chome.js line:147 object', 'color: #007acc;', "test");
-                if(document.querySelector('.about-page')) {
-                    document.querySelector('.about-page').remove()
+                if(selectElement('.about-page')) {
+                    deleteElement('.about-page')
                 }
-                if(document.querySelector('.visit-page-btn')) {
-                    document.querySelector('.visit-page-btn').remove()
+                if(selectElement('.visit-page-btn')) {
+                    deleteElement('.visit-page-btn')
                 };
-                const h1 = document.querySelector('h1');
-                const h2 = document.querySelector('h2');
+                const h1 = selectElement('h1');
+                const h2 = selectElement('h2');
                 h1.innerText = heading;
                 h2.innerText = subheading;
                 const mobileImage = createElement("a", ["mobileImage", "position-absolute", "shadow"], ["style", "href", "target"], 
@@ -182,10 +175,14 @@ function createTabs() {
                 pageUrl, "_blank"])
                 const paragraph = createElement("p", ["about-page", "position-absolute"], "style", "max-width: 600px; max-height: 9rem; overflow-y: auto");
                 paragraph.innerText = about;
-                const visitBtn = createElement("a", ["btn", "btn-primary", "position-absolute", "visit-page-btn", "font-secondary"], ["href", "target", "style"], [pageUrl, "_blank", "right: 0px; font-size: 1.5rem"]);
-                visitBtn.innerText = "Visit site";
+                const visitBtn = createElement("a", 
+                ["btn", "btn-primary", "position-absolute", "visit-page-btn", "font-secondary"], 
+                ["href", "target", "style"], 
+                [pageUrl, "_blank", "right: 0px; font-size: 1.5rem"], "Visit Website");
+                const containerVisitBtn = createElement("div", "w-100 position-absolute", "style", "top: 0")
+                containerVisitBtn.append(visitBtn)
+                selectElement("body").append(containerVisitBtn)
                 h2.insertAdjacentElement("afterend", paragraph)
-                h1.insertAdjacentElement("afterbegin", visitBtn)
                 h1.insertAdjacentElement("afterbegin", mobileImage)
                 layerTwo.removeAttribute("style");
                 layerTwo.setAttribute("style", `background: rgba(0, 0, 0, 0.5) url(${ImageUrl}); background-size: cover; background-position: center; background-blend-mode: darken`);

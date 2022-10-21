@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
+@import url("https://use.typekit.net/jjq8des.css");
 :root {
     --orange: #FF8800;
     --gray: #656565;
@@ -12,6 +12,10 @@
 
 .font-secondary {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.font-heading{
+    font-family: pirulen, sans-serif;
 }
 
 html {
