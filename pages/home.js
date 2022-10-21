@@ -17,7 +17,7 @@ export default async function() {
 
 function createTabs() {
     const loader = selectElement('.loader');
-    loader.style.display = "none"
+    modifyClassNames(loader, "d-none")
     const h1 = selectElement('h1');
     const h2 = selectElement('.sub-heading');
     h1.style.display = "block";
@@ -30,7 +30,7 @@ function createTabs() {
     const education = createElement("li", tabsUtilities, "", "", "Education")
     const projects = createElement("li", tabsUtilities, "", "", "Projects")
 
-    const textContainer = createElement("div", ["border", "p-3", "border-2", "border-top-1", "bg-black"]);
+    const textContainer = createElement("div", ["border", "p-3", "border-2", "border-top-1", "bg-black"], "style", "opacity: 0.7");
     const text = createElement("p", "mb-0")
     const array = [about, skills, experience, education, projects];
     const tabContainer = createElement("ul", ["nav", "nav-tabs", "w-100"]);
