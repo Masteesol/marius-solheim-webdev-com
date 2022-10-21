@@ -508,8 +508,6 @@ textarea, input {
     .tabs {
         display: flex;
         flex-direction: column-reverse;
-        position: absolute;
-        bottom: 0;
     }
     .main-layer-2 {
         justify-content: space-between!important;
