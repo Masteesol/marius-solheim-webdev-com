@@ -499,6 +499,12 @@ textarea, input {
      .tech-logos img {
         max-height: 4rem!important;
      }
+     h1, h2 {
+        text-align: center;
+     }
+     h1 {
+        font-size: 1rem!important;
+     }
 }
 
 
