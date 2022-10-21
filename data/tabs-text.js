@@ -12,7 +12,7 @@ export default {
                     <tr>
                         <td>2022</td>
                         <td>Noroff Content Factory</td>
-                        <td>Content writer Course Material</td>
+                        <td>Content Writer and Technical Proofreader</td>
                     </tr>
                     <tr>
                         <td>2022</td>
