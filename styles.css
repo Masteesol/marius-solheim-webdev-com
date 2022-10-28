@@ -28,7 +28,6 @@ body {
     background-image: linear-gradient(to top right, black, #848484);
     color: white;
     margin: 0px;
-    overflow: hidden;
 }
 
 .body-layer-1 {
@@ -75,20 +74,32 @@ body {
     background-position: center;
     position: relative;
     z-index: 3000;
+    opacity: 0.8;
 }
 
-.main, main {
+a { 
+    text-decoration: none;
+    font-weight: 600;
+    color: rgb(101, 142, 170);
+}
+
+.main {
     flex: 1 0 0;
+    z-index: 4000;
+    top: 0;
 }
 
-.main.posts {
-    background-color: rgba(0, 0, 0, 0.558);
-}
-.navbar {
-    position: absolute;
-    width: 100%;
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    z-index: 9999;
 }
 
+
+#visit-page-btn{
+    z-index: 9999;
+}
 
 .btn-primary {
     background-color: var(--orange)!important;
@@ -544,20 +555,22 @@ textarea, input {
      .tech-logos {
          flex-direction: column;
      }
+     
 }
 
 
 @media (max-width: 991.98px) { 
-    .mobileImage {
-        display: none;
-    }
     .body-layer-2.home {
         background-image: url("/images/main-background-mobile.png");
     }
+    
 }
 
 
 @media (max-width: 1199.98px) {  
+    .mobileImage {
+        display: none;
+    }
 
 }
 
@@ -578,4 +591,6 @@ textarea, input {
     button.quick-view {
         font-size: 0.8rem;
     }
+    
+    
 }

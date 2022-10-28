@@ -1,6 +1,7 @@
 export default {
     about: `My name is Marius Solheim and I am a front end web development student at Noroff Vocational School. I love programming and web development and I am currently in my second and final year, due to finish in March 2023. 
-    Another passion of mine is music production. I am currently based in Kristiansand, Norway
+    Another passion of mine is creating music and have my own project along with my wife, called <a target="_blank" href="https://eternal-blue.net">Eternal Blue.</a> 
+    I am currently based in Kristiansand, Norway
     `,
     skills: `My current skillset include: HTML and CSS, JavaScript, Bootstrap, SASS, Strapi CMS and some React. I like to follow the utility-first approach when designing my projects and have made a bunch of custom utility functions to aid the development process.`,
     experience: `<table class="table experience text-white">

@@ -14,7 +14,6 @@ export default async function() {
 }
 
 
-
 function createTabs() {
     const loader = selectElement('.loader');
     modifyClassNames(loader, "d-none")
@@ -36,7 +35,7 @@ function createTabs() {
     const tabContainer = createElement("ul", ["nav", "nav-tabs", "w-100"]);
 
     //adding logos to a hidden container in layer 1
-    const logosContainer = createElement("div", ["tech-logos", "container", "position-absolute", "d-none", "d-flex"], "style", "bottom: 3rem; z-index: 500");
+    const logosContainer = createElement("div", ["tech-logos", "container", "position-absolute", "d-none", "d-flex"], "style", "bottom: 3rem");
     let logosContainerInner = "";
 
     const { base : logosBase, fileNames : logosFileNames } = tabsImages.logos;
@@ -93,18 +92,22 @@ function createTabs() {
             const {projectExamOne, bayyinah, semesterProject} = projectText;
 
             body.addEventListener("click", function(event) {
+                if(selectElement("#visit-page-btn")) {
+                    deleteElement("#visit-page-btn")
+                }   
                 if(event.target.classList.contains("quick-view")) {
                     const button = event.target;
                     const buttons = document.querySelectorAll('.quick-view');
 
                     for (const button of buttons) {
-                        modifyClassNames(button, "btn-primary", ["btn-secondary", "active"])
+                        modifyClassNames(button, "btn-primary", ["btn-secondary", "active"])                     
                     }
                     if(button.classList.contains("quick-view")) {
                         modifyClassNames(event.target, ["btn-secondary", "active"], "btn-primary");
+                        
                     }
                     
-                }
+                } 
                 let url = "";
                 let urlMobile = "";
                 let pageUrl = "";
@@ -152,8 +155,8 @@ function createTabs() {
                 if(selectElement('.about-page')) {
                     deleteElement('.about-page')
                 }
-                if(selectElement('.visit-page-btn')) {
-                    deleteElement('.visit-page-btn')
+                if(selectElement('#visit-page-btn')) {
+                    deleteElement('#visit-page-btn')
                 }
                 modifyClassNames(layerTwo, "", ["pointer", "fade-in"])
 
@@ -179,7 +182,7 @@ function createTabs() {
                 ["btn", "btn-primary", "position-absolute", "visit-page-btn", "font-secondary"], 
                 ["href", "target", "style"], 
                 [pageUrl, "_blank", "right: 0px; font-size: 1.5rem"], "Visit Website");
-                const containerVisitBtn = createElement("div", "w-100 position-absolute", "style", "top: 0")
+                const containerVisitBtn = createElement("div", "w-100 position-absolute", "style | id", "top: 0 | visit-page-btn")
                 containerVisitBtn.append(visitBtn)
                 selectElement("body").append(containerVisitBtn)
                 h2.insertAdjacentElement("afterend", paragraph)
@@ -230,8 +233,8 @@ const triangleUtilities = {
 function backGroundTriangles() {
     const { base, size, direction, duration } = triangleUtilities;
 
-    setInterval(newTriangle, 5000);
-    setInterval(newTriangle, 2000);
+    //setInterval(newTriangle, 5000);
+    //setInterval(newTriangle, 2000);
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
