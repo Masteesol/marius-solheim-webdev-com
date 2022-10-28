@@ -173,9 +173,9 @@ function createTabs() {
                 const h2 = selectElement('h2');
                 h1.innerText = heading;
                 h2.innerText = subheading;
-                const mobileImage = createElement("a", ["mobileImage", "position-absolute", "shadow"], ["style", "href", "target"], 
-                [`background-image: url(${imageUrlMobile}); background-size: 100%; height: 80vh; width: 25rem; right: 0px`,
-                pageUrl, "_blank"])
+                /*const mobileImage = createElement("a", ["mobileImage", "position-absolute", "shadow"], ["style", "href", "target"], 
+                [`background-image: url(${imageUrlMobile}); background-size: 100%; height: 80vh; width: 25rem; right: 2rem;`,
+                pageUrl, "_blank"])*/
                 const paragraph = createElement("p", ["about-page", "position-absolute"], "style", "max-width: 600px; max-height: 9rem; overflow-y: auto");
                 paragraph.innerText = about;
                 const visitBtn = createElement("a", 
@@ -186,7 +186,7 @@ function createTabs() {
                 containerVisitBtn.append(visitBtn)
                 selectElement("body").append(containerVisitBtn)
                 h2.insertAdjacentElement("afterend", paragraph)
-                h1.insertAdjacentElement("afterbegin", mobileImage)
+                /*h1.insertAdjacentElement("afterbegin", mobileImage)*/
                 layerTwo.removeAttribute("style");
                 layerTwo.setAttribute("style", `background: rgba(0, 0, 0, 0.5) url(${ImageUrl}); background-size: cover; background-position: center; background-blend-mode: darken`);
                 modifyClassNames(layerTwo, "fade-in");
