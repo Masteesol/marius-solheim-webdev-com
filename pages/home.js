@@ -233,8 +233,8 @@ const triangleUtilities = {
 function backGroundTriangles() {
     const { base, size, direction, duration } = triangleUtilities;
 
-    //setInterval(newTriangle, 5000);
-    //setInterval(newTriangle, 2000);
+    setInterval(newTriangle, 5000);
+    setInterval(newTriangle, 2000);
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
