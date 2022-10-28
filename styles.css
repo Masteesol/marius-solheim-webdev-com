@@ -54,6 +54,17 @@ body {
     overflow-y: auto;
 }
 
+.overlay-pattern {
+    background-image: url("./images/bg-layer.png");
+    position: absolute;
+    z-index: 2000;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    width: 100vw;
+    height: 100vh;
+}
+
 .body-layer-2 {
     height: 100%;
     width: 100%;
@@ -63,6 +74,7 @@ body {
     background-size: cover;
     background-position: center;
     position: relative;
+    z-index: 3000;
 }
 
 .main, main {
@@ -77,19 +89,6 @@ body {
     width: 100%;
 }
 
-.main-nav {
-  position: fixed;
-  z-index: 1051;
-}
-
-.nav-link:hover {
-    transition: all .2s ease-in-out;
-    transition-duration: 0.3s;
-}
-
-form, .contact-modal, .modal-header, .modal-content, .modal-dialog, .modal-body {
-    background-color: rgba(7, 7, 7, 0.642)
-}
 
 .btn-primary {
     background-color: var(--orange)!important;
@@ -529,12 +528,7 @@ textarea, input {
 
 
 @media (max-width: 767.98px){
-    .body-layer-2.home {
-        background-image: url("/images/main-background-mobile.png");
-    }
-    .body-layer-2.all-posts, .body-layer-2.post {
-        background-image: url("/images/main-background-posts-mobile.png");
-    }
+
     .tabs-item.active {
         background-color: rgba(211, 211, 211, 0.567)!important;
         color: black;
@@ -556,6 +550,9 @@ textarea, input {
 @media (max-width: 991.98px) { 
     .mobileImage {
         display: none;
+    }
+    .body-layer-2.home {
+        background-image: url("/images/main-background-mobile.png");
     }
 }
 
